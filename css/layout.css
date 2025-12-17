@@ -1,0 +1,57 @@
+/* HEADER & NAVIGATION */
+/* Ajustes específicos para el navbar */
+.navbar-brand {
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* Estado activo para los links de navegación */
+.navbar-nav .nav-link.active {
+    color: #fff !important;
+    font-weight: 600;
+    border-bottom: 2px solid #fff;
+}
+
+.navbar-nav .nav-link {
+    transition: color 0.2s ease, border-bottom 0.2s ease;
+    border-bottom: 2px solid transparent;
+}
+
+.navbar-nav .nav-link:hover {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* ESTRUCTURA PRINCIPAL */
+main {
+    /* Asegura que el contenido no quede pegado a los bordes en móviles */
+    padding-bottom: 60px;
+}
+
+/* Secciones del Dashboard */
+section {
+    position: relative;
+}
+
+/* Títulos de Sección */
+h2 {
+    color: #343a40;
+    font-size: 1.75rem;
+}
+
+/* Contenedor de botones de acción en el header */
+.d-flex.gap-2 button {
+    white-space: nowrap;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991.98px) {
+    /* En móviles/tablets, los botones de acción del header tienen margen superior */
+    .d-flex.gap-2 {
+        margin-top: 1rem;
+        flex-wrap: wrap;
+    }
+    
+    .d-flex.gap-2 button {
+        flex: 1 1 auto; /* Botones ocupan ancho disponible */
+    }
+}

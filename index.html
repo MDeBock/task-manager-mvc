@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Gestión de Pendientes</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
+    
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/cards.css">
+    <link rel="stylesheet" href="css/modales.css">
+</head>
+<body>
+
+    <header class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">Gestión Pendientes</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html" id="nav-dashboard">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pendientes.html" id="nav-pendientes">Pendientes</a>
+                    </li>
+                </ul>
+                <div class="d-flex gap-2">
+                    <input type="file" id="fileImport" accept=".csv, .xlsx, .xls" style="display: none;">
+                    <button class="btn btn-outline-light btn-sm" id="btnImportar">
+                        <i class="bi bi-upload"></i> Importar
+                    </button>
+                    <button class="btn btn-outline-success btn-sm" id="btnExportCsv">
+                        <i class="bi bi-filetype-csv"></i> Exportar CSV
+                    </button>
+                    <button class="btn btn-outline-success btn-sm" id="btnExportExcel">
+                        <i class="bi bi-file-earmark-spreadsheet"></i> Exportar Excel
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container my-4">
+        
+        <section id="sec-activos" class="mb-5">
+            <h2 class="mb-3 border-bottom pb-2">Pendientes Activos</h2>
+            <div id="container-activos" class="d-flex flex-wrap justify-content-center gap-3">
+                </div>
+            <div id="msg-no-activos" class="alert alert-info d-none" role="alert">
+                No hay pendientes activos.
+            </div>
+        </section>
+
+        <section id="sec-pendientes">
+            <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
+                <h2 class="mb-0">Pendientes</h2>
+                <button class="btn btn-secondary btn-sm" id="btnLimpiarFiltros">
+                    <i class="bi bi-arrow-counterclockwise"></i> Limpiar Filtros
+                </button>
+            </div>
+
+            <div class="card p-3 mb-4 bg-light">
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <label for="filterProyecto" class="form-label">Proyecto</label>
+                        <select class="form-select" id="filterProyecto">
+                            <option value="">Todos los proyectos</option>
+                            </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="filterPrioridad" class="form-label">Prioridad</label>
+                        <select class="form-select" id="filterPrioridad">
+                            <option value="">Todas las prioridades</option>
+                            <option value="alta">Alta</option>
+                            <option value="media">Media</option>
+                            <option value="baja">Baja</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="sortOrder" class="form-label">Ordenar por</label>
+                        <select class="form-select" id="sortOrder">
+                            <option value="fecha_asc">Más antiguo primero</option>
+                            <option value="prioridad_desc">Por prioridad (Alta-Baja)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div id="container-pendientes" class="d-flex flex-wrap justify-content-center gap-3">
+                </div>
+            <div id="msg-no-pendientes" class="alert alert-secondary d-none" role="alert">
+                No hay pendientes disponibles.
+            </div>
+        </section>
+
+    </main>
+
+    <div id="modal-container"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+
+    <script type="module" src="js/scripts.js"></script>
+</body>
+</html>

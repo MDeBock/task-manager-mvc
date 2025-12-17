@@ -1,0 +1,104 @@
+/* ESTILOS DE TARJETAS (PENDIENTES) */
+
+.pendiente-card {
+    background-color: #fff;
+    border: 1px solid #dee2e6; /* Borde visible */
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Sombra leve */
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    
+    /* Dimensionamiento Responsive usando Flexbox con gap */
+    /* Mobile (<768px): 1 por fila */
+    width: 100%;
+    max-width: 400px; /* Evita que se estiren demasiado en móviles */
+}
+
+/* Tablet (>= 768px): 2 por fila */
+@media (min-width: 768px) {
+    .pendiente-card {
+        /* Cálculo asumiendo gap-3 de Bootstrap (1rem) */
+        /* (100% - 1rem gap) / 2 */
+        width: calc(50% - 0.5rem); 
+        max-width: none;
+    }
+}
+
+/* Desktop (>= 992px): 3 por fila */
+@media (min-width: 992px) {
+    .pendiente-card {
+        /* Cálculo asumiendo gap-3 de Bootstrap (1rem) */
+        /* (100% - 2rem total de gaps) / 3 */
+        width: calc(33.333% - 0.67rem);
+    }
+}
+
+.pendiente-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+/* Header de la tarjeta */
+.card-header-custom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.75rem;
+}
+
+.card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0;
+    color: #212529;
+    /* Truncar texto muy largo */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 70%;
+}
+
+/* Cuerpo de la tarjeta */
+.card-body-custom {
+    font-size: 0.9rem;
+    color: #6c757d;
+    flex-grow: 1; /* Ocupa el espacio disponible */
+}
+
+.card-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.card-label {
+    font-weight: 600;
+    color: #495057;
+}
+
+/* Tiempo Restante */
+.time-remaining {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #0d6efd; /* Azul por defecto */
+}
+
+.time-remaining.negative {
+    color: #dc3545; /* Rojo si es negativo */
+}
+
+/* Footer de la tarjeta */
+.card-footer-custom {
+    margin-top: 1rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid #f0f0f0;
+    text-align: center;
+}
+
+.card-footer-custom .btn {
+    width: 100%;
+}
