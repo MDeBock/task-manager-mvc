@@ -1,4 +1,4 @@
-# 📋 Gestión de Pendientes Web
+# 📋 Task Management Dashboard
 
 Aplicación web **100% Frontend** para la gestión y seguimiento de tareas pendientes. Diseñada para funcionar directamente en el navegador sin necesidad de servidores, bases de datos externas ni procesos de compilación.
 
